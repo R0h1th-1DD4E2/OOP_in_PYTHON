@@ -30,7 +30,10 @@ class Item:
     
     @name.setter
     def name(self, value):
-        self.__name = value
+        if len(value) > 15:
+            raise Exception("The name is too long")
+        else:
+            self.__name = value
 
     @classmethod
     def instantiate_from_csv(cls): #cls - class is passed as 1st argument
